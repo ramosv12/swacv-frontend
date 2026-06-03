@@ -1,0 +1,30 @@
+.sidebar {
+  width: 240px;
+  background: #0c3b4a;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.sidebar a.active {
+  background: #0f5c73;
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+}

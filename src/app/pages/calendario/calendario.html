@@ -1,0 +1,51 @@
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h2>Calendario de Vacaciones</h2>
+    <p>Planifica tus vacaciones de forma inteligente y sencilla</p>
+  </div>
+
+  <!-- TARJETAS -->
+  <div class="cards">
+
+    <mat-card class="card">
+      <p>Días disponibles</p>
+      <p>{{ diasDisponibles }}</p>
+      <span>días</span>
+    </mat-card>
+
+    <mat-card class="card">
+      <p>Fecha de vencimiento</p>
+      <h3>22 Oct 2026</h3>
+    </mat-card>
+
+    <mat-card class="card">
+      <p>Próximas vacaciones</p>
+      <h3>10 Abr 2026</h3>
+    </mat-card>
+
+  </div>
+
+  <!-- CALENDARIO -->
+  <div class="calendar">
+
+    <h3>Vista anual 2026</h3>
+
+    <div class="months">
+
+      <div class="month" *ngFor="let m of months">
+        <h4>{{ m }}</h4>
+
+        <div class="days">
+          <div class="day" *ngFor="let d of days">
+            {{ d }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
