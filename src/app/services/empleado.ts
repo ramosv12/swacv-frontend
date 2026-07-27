@@ -7,11 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class EmpleadoService {
 
-  private apiUrl = 'http://localhost:5071/api/empleado/dias';
+  private apiUrl = 'http://18.219.177.118:5000/api/empleado/dias';
 
   constructor(private http: HttpClient) {}
 
   getDias(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
+
+  getVacaciones(empleadoId: number, start: string, end: string) {
+  return this.http.get<any[]>(
+    `http://18.219.177.118:5000/api/Vacaciones?empleadoId=${empleadoId}&start=${start}&end=${end}`
+  );
+}
 }

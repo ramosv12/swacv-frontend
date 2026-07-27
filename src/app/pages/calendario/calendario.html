@@ -27,25 +27,62 @@
 
   </div>
 
-  <!-- CALENDARIO -->
-  <div class="calendar">
+   <!-- BOTONES DE VISTA -->
+  <!-- ========================= -->
+<!-- LEYENDA DE ESTATUS -->
+<!-- ========================= -->
+<div class="leyenda">
 
-    <h3>Vista anual 2026</h3>
-
-    <div class="months">
-
-      <div class="month" *ngFor="let m of months">
-        <h4>{{ m }}</h4>
-
-        <div class="days">
-          <div class="day" *ngFor="let d of days">
-            {{ d }}
-          </div>
-        </div>
-      </div>
-
-    </div>
-
+  <div class="item">
+    <span class="color calendarizado"></span>
+    <span>Calendarizado</span>
   </div>
+
+  <div class="item">
+    <span class="color planificado"></span>
+    <span>Planificado</span>
+  </div>
+
+  <div class="item">
+    <span class="color autorizado"></span>
+    <span>Autorizado</span>
+  </div>
+
+  <div class="item">
+    <span class="color tomado"></span>
+    <span>Tomado</span>
+  </div>
+
+</div>
+
+  <!-- ========================= -->
+  <!-- VISTA MES (FULLCALENDAR) -->
+  <!-- ========================= -->
+  <div *ngIf="vista === 'mes'" class="calendar-container">
+    <mat-card class="calendar-card">
+      <full-calendar [options]="calendarOptions"></full-calendar>
+    </mat-card>
+  </div>
+
+  <!-- ========================= -->
+  <!-- VISTA AÑO (12 MESES) -->
+  <!-- ========================= -->
+  <div *ngIf="vista === 'anio'" class="year-view">
+
+    <mat-card 
+      *ngFor="let month of months; let i = index; trackBy: trackByMonth" 
+      class="month-card"
+    >
+
+      <h4>{{ getMonthDate(month) | date:'MMMM' }}</h4>
+
+      <full-calendar
+    [options]="getCalendarOptions(month)"
+    
+  ></full-calendar>
+
+  </mat-card>
+
+  
 
 </div>

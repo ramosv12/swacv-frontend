@@ -1,0 +1,53 @@
+<div class="calendarizar-container">
+
+  <h3>Calendarizar fecha:</h3>
+
+  <div class="form-row">
+
+    <!-- Fecha inicio -->
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha inicio *</mat-label>
+      <input matInput [matDatepicker]="pickerInicio" [(ngModel)]="fechaInicio">
+      <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+      <mat-datepicker #pickerInicio></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Fecha fin -->
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha fin *</mat-label>
+      <input matInput [matDatepicker]="pickerFin" [(ngModel)]="fechaFin">
+      <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+      <mat-datepicker #pickerFin></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Total días -->
+    <mat-form-field appearance="outline">
+      <mat-label>Total días hábiles</mat-label>
+      <input matInput [value]="diasHabiles + ' días'" disabled>
+    </mat-form-field>
+
+  </div>
+
+  <!-- Observaciones -->
+  <div class="observaciones">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Observaciones (opcional)</mat-label>
+      <textarea matInput rows="3" [(ngModel)]="observaciones" maxlength="250"></textarea>
+      <mat-hint align="end">{{observaciones?.length || 0}}/250</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <!-- Botones -->
+  <div class="acciones">
+
+    <button mat-stroked-button color="primary" (click)="limpiar()">
+      Limpiar
+    </button>
+
+    <button mat-raised-button color="primary" (click)="enviar()">
+      ✈ Enviar Solicitud
+    </button>
+
+  </div>
+
+</div>
